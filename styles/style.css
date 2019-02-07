@@ -5,6 +5,13 @@ body {
 #yaLogoInAuth {
   margin-bottom: 25px;
 }
+#auth-form{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -110%);
+  width: max-content;
+}
 
 .ui-form {
   max-width: 315px;
@@ -41,6 +48,9 @@ body {
   left: 50%;
   transform: translate(-50%);
   text-align: center;
+}
+.userData:first-letter{
+  color: red;
 }
 h3{
   margin: 0px 5% 0px;

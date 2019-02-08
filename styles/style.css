@@ -85,3 +85,37 @@ h3{
   position: absolute;
   margin: 10px 0 0 0;
 }
+h2{
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+h3 a{
+  text-decoration: none;
+  color: black;
+  font-style: italic;
+}
+
+h3 a:hover{
+  transition: .3s;
+  color: #FFCC00;
+}
+
+#login{
+
+  text-align: -webkit-right;
+}
+
+#login:first-letter{
+  color: red;
+}
+
+#login a{
+  text-decoration: none; 
+}
+
+#login a:hover{
+  transition: .3s;
+  color: red;
+}

@@ -2,6 +2,7 @@
     $app_id='5dea7068f0b04ee58013ddddbd804820';
 
     $url='https://oauth.yandex.ru/authorize?response_type=token&client_id='.$app_id;
+    
 
     if($_POST['confirm-redirect'])
     { 
@@ -9,12 +10,13 @@
         exit();      
     }
     
-    if (!isset($_GET['token']))
+    $token = filter_input( INPUT_GET, 'token');
+    
+    if ($token==null || $token==false)
     {
         $autorized=false;
 
-        echo '<script src="js/script.js"> </script>
-        <script>
+        echo '<script>
         let token;   
 
         if (document.location.hash[1]!="null") {
@@ -29,7 +31,6 @@
     else
     {
         $autorized=true;
-        $token = $_GET['token'];
         $ud = curl_init('https://cloud-api.yandex.net/v1/disk/');
        
         curl_setopt($ud, CURLOPT_HTTPHEADER, array('Authorization: OAuth ' . $token));
@@ -40,7 +41,7 @@
         curl_close($ud);
 
         $usr = json_decode($usr, true);
-        
+
         if ($usr['used_space']/pow(1024,2)<1024) {
             $usedSpace = round($usr['used_space']/pow(1024,2), 1).' МБ';
         }
